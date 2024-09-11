@@ -1,1 +1,1 @@
-console.log("Hello, world!")
+console.log("Congratulations! You got node.js to run")

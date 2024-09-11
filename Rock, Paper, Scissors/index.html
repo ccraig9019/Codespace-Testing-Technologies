@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">   
+<head>
+    <meta charset="=UTF-8">
+    <meta name="viewport" content="width=#, initial-scale=1.0">
+    <title>Rock, Paper, Scissors!</title>
+    <style>
+        .options {
+            display: flex;
+            justify-content: center;
+            }
+    </style>
+</head> 
+<body>  
+    <!-- Buttons for user input -->
+    <div class="options">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>    
+    <br>
+    <!-- Info -->
+    <h2>Your option: <span id="user-option"></span> </h2>
+    <h2>Computer option: <span id="computer-option"></span></h2>
+    <h2>Result: <span id="result"></span></h2>
+
+    <script>
+        // Get buttons and assign them to variables
+        const rockBtn = document.getElementById("rock");
+        const paperBtn = document.getElementById("paper");
+        const scissorsBtn = document.getElementById("scissors");
+
+        //Get spans
+        const userOptionSpan = document.getElementById("user-option");
+        const computerOptionSpan = document.getElementById("computer-option");
+        const resultSpan = document.getElementById("result");
+        
+        //Define options
+        const options = ["Rock", "Paper", "Scissors"];
+
+        // Add click events to the buttons 
+        rockBtn.addEventListener("click", function(){
+            compareResults(options[0]);
+        });
+
+        paperBtn.addEventListener("click", function(){
+            compareResults(options[1]);
+        });
+
+        scissorsBtn.addEventListener("click", function(){
+            compareResults(options[2]);
+        });
+
+        //Compare results
+        function compareResults(userOption){
+            //Set computer option
+            const computerOption = options[Math.floor(Math.random() * options.length)]
+            
+            // Set user option
+            userOptionSpan.innerHTML = userOption;
+
+            // Set computer option
+            computerOptionSpan.innerHTML = computerOption;
+            
+            //Compare results
+            //If it's a draw
+            if(userOption === computerOption) {
+                resultSpan.innerHTML = "It's a tie!"
+            }
+            
+            //Rock vs. scissors
+            else if (userOption === options[0] && computerOption === options[2]) {
+                resultSpan.innerHTML = "You win!"
+            }
+
+            //Paper vs. rock
+            else if (userOption === options[1] && computerOption === options[0]) {
+                resultSpan.innerHTML = "You win!"
+            }
+
+            //Scissors vs. paper
+            else if (userOption === options[2] && computerOption === options[1]) {
+                resultSpan.innerHTML = "You win!"
+            }
+
+            //Any other result
+            else {
+                resultSpan.innerHTML = "You lose!"
+            }
+        
+        }
+
+
+
+
+    </script>
+</body>
+
+
+
+</html>
