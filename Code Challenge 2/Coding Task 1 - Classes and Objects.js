@@ -1,7 +1,9 @@
-function User(firstName, lastName) {
+class User {
+    constructor(firstName, lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.hello = function() {
+    }
+    hello() {
         return "Hello, " + this.firstName + " " + this.lastName;
     }
 }
