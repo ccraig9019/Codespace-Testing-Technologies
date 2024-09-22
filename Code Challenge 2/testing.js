@@ -1,13 +1,30 @@
-let student1 = "Halina";
 
-let student2 = student1;
+class Student {
+	constructor(firstName, lastName, age, height, employed) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.height = height;
+		this.employed = employed;
+	}
+	
+	get fullName() {
+		return `${this.firstName} ${this.lastName}`
+	}
 
-console.log(student1);
+    set fullName(name) {
+		const components = name.split(" ");
+		this.firstName = components[0];
+		this.lastName = components[1];
+	}
 
-console.log(student2);
 
-student1 = "Brookes";
+}
 
-console.log(student1);
+const student1 = new Student;
 
-console.log(student2);
+console.log(student1.fullName);
+
+student1.fullName = "Bia Barbalho";
+
+console.log(student1.fullName);
