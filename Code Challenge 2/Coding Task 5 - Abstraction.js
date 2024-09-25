@@ -1,17 +1,18 @@
 class User {
     constructor(username) {
-        this.username = username;
+        this._username = username;
     }
 
     stateYourRole() {
+        throw new Error("Cannot use method in abstract class.");
     }
 
     get getUsername() {
-        return this.username;
+        return this._username;
     }
 
     set setUsername(name) {
-        this.username = name;
+        this._username = name;
     }
 }
 
@@ -29,8 +30,8 @@ class Viewer extends User {
 
 const admin = new Admin;
 admin.setUsername = "Balthazar";
-console.log(admin.stateYourRole());
+console.log(admin.stateYourRole() + " " + admin.getUsername);
 
 const viewer = new Viewer;
 viewer.setUsername = "Melchior";
-console.log(viewer.stateYourRole());
+console.log(viewer.stateYourRole() + " " + viewer.getUsername);

@@ -1,14 +1,14 @@
 class User {
     constructor(numberOfArticles) {
-        this.numberOfArticles = numberOfArticles;
+        this._numberOfArticles = numberOfArticles;
     }
 
     set setNumberOfArticles(numberOfArticles) {
-        this.numberOfArticles = numberOfArticles;
+        this._numberOfArticles = numberOfArticles;
     }
 
     get getNumberOfArticles() {
-        return  this.numberOfArticles;
+        return  this._numberOfArticles;
     }
 
     calcScores() {
@@ -18,14 +18,14 @@ class User {
 
 class Author extends User {
     calcScores() {
-        const score = this.numberOfArticles * 10 + 20;
+        const score = this._numberOfArticles * 10 + 20;
         return score;
     } 
 }
 
 class Editor extends User {
     calcScores() {
-        const score = this.numberOfArticles * 6 + 15;
+        const score = this._numberOfArticles * 6 + 15;
         return score;
     }
 }
